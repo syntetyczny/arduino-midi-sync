@@ -8,6 +8,7 @@ Detail is here : https://ejlabs.net/arduino-midi-master-clock/
 
 MIDI Clock EFX version : https://github.com/ejlabs/arduino-midi-sync/tree/Sample-EFX
 
+![alt text](./Arduino_Master_Clock.png "connection diagram")
 ### Requirements ###
 
 * IDE Arduino 1.8.12
