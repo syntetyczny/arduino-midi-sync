@@ -36,7 +36,9 @@
 TM1637Display display(CLK,DIO);
 
 #define LED_PIN1 13 // Tempo LED
-#define SYNC_OUTPUT_PIN 6 // Audio Sync Digital Pin
+#define SYNC_OUTPUT_PIN 6 // Audio Sync Digital Pin Original
+#define SYNC_OUTPUT_PIN_2 9 // Audio Sync Digital Pin Duplicate
+#define SYNC_OUTPUT_PIN_3 7 // Audio Sync Digital Pin Duplicate
 #define SYNC_OUTPUT_PIN2 8 // 2nd Audio Sync Pin
 #define BUTTON_START 18 // Start/Stop Push Button
 #define BUTTON_ROTARY 19 // Rotary Encoder Button
@@ -204,6 +206,8 @@ void loop(void) {
 
 void all_off() { // make sure all sync, led pin stat to low
   digitalWrite(SYNC_OUTPUT_PIN, LOW);
+  digitalWrite(SYNC_OUTPUT_PIN_2, LOW);
+  digitalWrite(SYNC_OUTPUT_PIN_3, LOW);
   digitalWrite(SYNC_OUTPUT_PIN2, LOW);
   digitalWrite(LED_PIN1, LOW);
 }
@@ -221,9 +225,13 @@ void sendClockPulse() {
 
   if (AudioSyncCount == 0) {
       digitalWrite(SYNC_OUTPUT_PIN, HIGH); 
+      digitalWrite(SYNC_OUTPUT_PIN_2, HIGH);
+      digitalWrite(SYNC_OUTPUT_PIN_3, HIGH);
   } else {        
     if (AudioSyncCount == 1) {     
       digitalWrite(SYNC_OUTPUT_PIN, LOW);
+      digitalWrite(SYNC_OUTPUT_PIN_2, LOW);
+      digitalWrite(SYNC_OUTPUT_PIN_3, LOW);
     }
   }  
 
